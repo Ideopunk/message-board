@@ -14,13 +14,33 @@ router.get("/", (req, res) =>
 			if (err) {
 				return next(err);
 			}
-			res.render("index", {
-				title: "The Club",
-				user: req.user,
-				basic: req.user?.status === "basic" ? true : false,
-        admin: req.user?.status === "admin" ? true : false,
-        posts: list_posts
-			});
+
+			if (!req.user) {
+				let modified_list_posts = [];
+				for (let post of list_posts) {
+					modified_list_posts.push({
+						subject: post.subject,
+						date_formatted: post.date_formatted,
+						message: post.message,
+					});
+				}
+
+				res.render("index", {
+					title: "The Club",
+					user: req.user,
+					basic: req.user?.status === "basic" ? true : false,
+					admin: req.user?.status === "admin" ? true : false,
+					posts: modified_list_posts,
+				});
+			} else {
+				res.render("index", {
+					title: "The Club",
+					user: req.user,
+					basic: req.user?.status === "basic" ? true : false,
+					admin: req.user?.status === "admin" ? true : false,
+					posts: list_posts,
+				});
+			}
 		})
 );
 
