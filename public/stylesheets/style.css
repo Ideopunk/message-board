@@ -130,22 +130,26 @@ table {
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 3px 2px 4px grey;
-  border-radius: 10px; }
+  border-radius: 10px;
+  width: 400px; }
 
 .message-date {
   margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  box-sizing: border-box;
   font-size: 0.75rem;
-  text-align: right; }
+  text-align: right;
+  border-top: 1px solid black; }
 
 .message-text {
-  margin: 0.5rem 0; }
+  margin: 0.5rem 0;
+  overflow-wrap: break-word; }
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: linear-gradient(#bbaedd 0%, #f0cfcf 100%);
   display: flex;
   flex-direction: column;
-  height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -167,7 +171,7 @@ h2 {
   font-size: 1.5rem; }
 
 h3 {
-  font-size: 1.25rem; }
+  font-size: 1.1rem; }
 
 input {
   border: 0;
@@ -177,26 +181,16 @@ input {
   box-sizing: border-box;
   width: 100%;
   border-radius: 5px;
-  font-size: 14px; }
+  font-size: 14px;
+  transition: all linear 0.1s;
+  outline: none; }
 
-input:hover, input:focus {
+input:hover,
+input:focus {
   background-color: #cfebf5; }
 
 input:active {
-  background-color: #a5d9ec; }
-
-.big {
-  font-size: 20px; }
-
-.submit {
-  background: white;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-radius: 5px;
-  min-height: 2rem; }
+  background-color: #bae2f1; }
 
 label {
   display: block;
@@ -208,10 +202,17 @@ label {
 
 .app {
   display: flex;
-  flex-direction: column;
   padding: 1rem;
   box-sizing: border-box;
-  width: 500px; }
+  width: 100%; }
+
+.aside {
+  position: fixed;
+  bottom: 1rem;
+  right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
 
 .auth-card {
   margin-top: 3rem;
@@ -220,8 +221,17 @@ label {
   align-self: center;
   background-color: rgba(255, 255, 255, 0.4);
   box-shadow: 3px 2px 4px grey;
+  height: fit-content;
   border-radius: 20px;
-  width: 300px; }
+  width: 300px;
+  flex: 1; }
+
+.big {
+  font-size: 20px; }
+
+.create-card {
+  max-width: 600px;
+  margin: 3rem; }
 
 .error {
   font-size: 20px;
@@ -236,11 +246,21 @@ label {
 .grey {
   color: grey; }
 
+.icon {
+  width: 2rem;
+  height: 2rem; }
+
 .marg-top {
   margin-top: 2rem; }
 
 .marg-bot {
   margin-bottom: 1.5rem; }
+
+.posts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .space {
   margin-right: 1rem; }
@@ -249,5 +269,15 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+
+.submit {
+  background: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 5px;
+  min-height: 2rem; }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,28 +2,29 @@
 @import "message";
 
 $testborder: 1px solid blue;
+$lighttransition: all linear 0.1s;
 
 body {
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	background: linear-gradient(rgb(187, 174, 221) 0%, rgb(240, 207, 207) 100%);
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	// height: 100vh;
 	width: 100vw;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-  margin: 0;
-  overflow-x: hidden;
+	margin: 0;
+	overflow-x: hidden;
 }
 
 a {
 	color: #000000;
-  text-decoration: none;
+	text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
 }
 
 h1 {
@@ -35,7 +36,7 @@ h2 {
 }
 
 h3 {
-	font-size: 1.25rem;
+	font-size: 1.1rem;
 }
 
 input {
@@ -47,30 +48,17 @@ input {
 	width: 100%;
 	border-radius: 5px;
 	font-size: 14px;
+	transition: $lighttransition;
+	outline: none;
 }
 
-input:hover, input:focus {
-  background-color: rgb(207, 235, 245);
+input:hover,
+input:focus {
+	background-color: rgb(207, 235, 245);
 }
 
 input:active {
-  background-color: darken(rgb(207, 235, 245), 10%);
-
-}
-
-.big {
-  font-size: 20px;
-}
-
-.submit {
-	background: white;
-	font-weight: bold;
-	display: flex;
-	align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-radius: 5px;
-  min-height: 2rem;
+	background-color: darken(rgb(207, 235, 245), 5%);
 }
 
 label {
@@ -84,10 +72,19 @@ label {
 
 .app {
 	display: flex;
-	flex-direction: column;
+	// flex-direction: column;
 	padding: 1rem;
 	box-sizing: border-box;
-	width: 500px;
+	width: 100%;
+}
+
+.aside {
+	position: fixed;
+	bottom: 1rem;
+	right: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .auth-card {
@@ -95,17 +92,27 @@ label {
 	padding: 1rem;
 	box-sizing: border-box;
 	align-self: center;
-  background-color: rgba(255, 255, 255, 0.4);
+	background-color: rgba(255, 255, 255, 0.4);
 	box-shadow: 3px 2px 4px grey;
-  
-  border-radius: 20px;
-  width: 300px;
+  height: fit-content;
+	border-radius: 20px;
+	width: 300px;
+	flex: 1;
+}
+
+.big {
+	font-size: 20px;
+}
+
+.create-card {
+	max-width: 600px;
+	margin: 3rem;
 }
 
 .error {
-  font-size: 20px;
-  text-align: center;
-  font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
 }
 
 .form-name {
@@ -115,7 +122,12 @@ label {
 }
 
 .grey {
-  color: grey;  
+	color: grey;
+}
+
+.icon {
+	width: 2rem;
+	height: 2rem;
 }
 
 .marg-top {
@@ -126,13 +138,30 @@ label {
 	margin-bottom: 1.5rem;
 }
 
+.posts {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .space {
 	margin-right: 1rem;
 }
 
 .spread {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
+.submit {
+	background: white;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border-radius: 5px;
+	min-height: 2rem;
+}

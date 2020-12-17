@@ -1,38 +1,26 @@
-<h1 class="top">{{title}}</h1>
 
     <div class="app">
 
 
 {{#if user}}
-    <form method="POST" action="/message" class="auth-card">
-        Create a new message
+    <form method="POST" action="/message" class="auth-card create-card">
+        <span class="big">Create a new message</span>
         <label>
             <span class="form-name">Subject</span>
             <input required name="subject" />
         </label>
         <label>
              <span class="form-name">Message</span>
-            <input required name="message" />
+            <input required name="message" maxlength="560" />
         </label>
         <input class="submit" type="submit" value="Post"/>
     </form>
-    <a class="submit marg-top" href="log-out">Log out.</a>
+ 
 
-    {{#if basic}}
-        <a class="submit" href="/join">Join the club</a>
-    {{/if}}
-
-{{else}}
-<p class="marg-top">
-    <a class="space" href="log-in">- Log in</a>
-    <a class="space" href="sign-up">- Sign up</a>
-</p>
-    
 {{/if}}
 
 {{#if posts}}
-    <h2 class="marg-top">Posts</h2>
-    <ul>
+    <ul class="posts">
     {{#each posts}}
         <li class="message">
             <h2 class="message-subject">{{this.subject}}</h2>

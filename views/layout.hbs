@@ -6,6 +6,18 @@
   </head>
   <body>
     {{{body}}}
+    <div class="aside">
 
+    {{#if basic}}
+        <a class="btn space" href="/join">Join the club</a>
+    {{/if}}
+    {{#if user}}
+       <a class="btn" href="log-out"><img class="icon" src="/images/power-outline.svg" alt="power-icon" /></a>
+    {{else}}
+    <a class="space btn" href="log-in">Log in</a>
+    <a class="space btn" href="sign-up">Sign up</a>
+    {{/if}}
+    
+    </div>
   </body>
 </html>
