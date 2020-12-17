@@ -1,14 +1,30 @@
-  <h1>Sign Up</h1>
-  <form action="" method="POST">
-    <label for="first">First name</label>
-    <input name="first" placeholder="First name" type="text" required/>
-    <label for="last">Last name</label>
-    <input name="last" placeholder="Last name" type="text" required/>
-    <label for="username">Email address</label>
-    <input name="username" type="email" placeholder="email" type="text" required/>  
-    <label for="password">Password</label>
+  <form action="" method="POST" class="auth-card">
+  <h1 class="marg-bot spread">Sign Up <a class='grey' href="log-in">Log In</a></h1>
+
+    <label>
+      <span class="form-name">First name</span>
+    <input name="first" type="text" required/>
+    </label>
+
+    <label>
+      <span class="form-name">Last name</span>
+      <input name="last" type="text" required/>
+    </label>
+
+    <label>
+      <span class="form-name">Email</span>
+      <input name="username" type="email" type="text" required/>  
+    </label>
+    
+    <label>
+      <span class="form-name">Password</span>
     <input name="password" type="password" required minlength="8"/>
-    <label for="confirm">Confirm password</label>
-    <input name="confirm" type="password" required minlength="8"/>
-    <button>Sign Up</button>
+    </label>
+
+    <label>
+      <span class="form-name">Confirm password</span>
+      <input name="confirm" type="password" required minlength="8"/>
+    </label>
+
+    <input class="marg-top submit"  type="submit" value="Sign Up" />
   </form>

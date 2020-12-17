@@ -1,0 +1,21 @@
+.message {
+	border: 3px solid #0084b8;
+	margin: 1rem 0;
+	padding: 1rem;
+	box-sizing: border-box;
+	background-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 3px 2px 4px grey;
+	border-radius: 10px;
+}
+
+
+
+.message-date {
+	margin-top: 0.5rem;
+    font-size: 0.75rem;
+    text-align: right;
+}
+
+.message-text {
+    margin: 0.5rem 0;
+}

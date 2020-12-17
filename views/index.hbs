@@ -1,42 +1,47 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+    <div class="app">
+
+<h1 class="top">{{title}}</h1>
 
 {{#if user}}
     <form method="POST" action="/message">
         Create a new message
         <label>
-            Subject
+            <span class="form-name">Subject</span>
             <input required name="subject" placeholder="Subject"/>
         </label>
         <label>
-            Message
+             <span class="form-name">Message</span>
             <input required name="message" placeholder="Message" />
         </label>
-        <input type="submit" value="Send"/>
+        <input class="submit" type="submit" value="Send"/>
     </form>
-    <a href="log-out">Log out.</a>
+    <a class="submit marg-top" href="log-out">Log out.</a>
 
     {{#if basic}}
         <a href="join">Join the club</a>
     {{/if}}
 
 {{else}}
-    <a href="log-in">Log in.</a>
-    <a href="sign-up">Sign up.</a>
+<p class="marg-top">
+    <a class="space" href="log-in">- Log in</a>
+    <a class="space" href="sign-up">- Sign up</a>
+</p>
+    
 {{/if}}
 
 {{#if posts}}
+    <h2 class="marg-top">Posts</h2>
     <ul>
     {{#each posts}}
-        <li>
-            <h2>{{this.subject}}</h2>
-            {{#if user}}
-            <h3>{{this.user.full_name}}</h3>
+        <li class="message">
+            <h2 class="message-subject">{{this.subject}}</h2>
+            {{#if this.user.full_name}}
+            <h3 class="message-name">{{this.user.full_name}}</h3>
             {{/if}}
-            <p>{{{this.message}}}</p>
-            {{!-- {{this.message}}</p> --}}
-            <small>{{this.date_formatted}}</small>
+            <p class="message-text">{{{this.message}}}</p>
+            <p class="message-date">{{this.date_formatted}}</p>
         </li>
     {{/each}}
     </ul>
 {{/if}}
+    </div>

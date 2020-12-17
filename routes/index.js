@@ -7,7 +7,7 @@ const Post = require("../models/post");
 const passport = require("passport");
 
 /* GET home page. */
-router.get("/", (req, res) =>
+router.get("/", (req, res, next) =>
 	Post.find({})
 		.populate("user")
 		.exec((err, list_posts) => {
@@ -15,7 +15,7 @@ router.get("/", (req, res) =>
 				return next(err);
 			}
 
-			if (!req.user) {
+			if (!req.user || req.user.status === "basic") {
 				let modified_list_posts = [];
 				for (let post of list_posts) {
 					modified_list_posts.push({
@@ -83,10 +83,12 @@ router.post(
 );
 
 router.get("/join", (req, res) => {
-	// console.log(user);
-	console.log(req.user);
-	console.log(req.session);
-	res.render("join");
+	if (req.user) {
+		res.redirect("/")
+	} else {
+		res.render("join");
+
+	}
 });
 
 router.post(
@@ -94,10 +96,6 @@ router.post(
 	[body("code").custom((value) => Number(value) === Number(process.env.CLUB_PASS))],
 	(req, res, next) => {
 		const errors = validationResult(req);
-		console.log(req.user);
-		console.log(req.body.number);
-		console.log(req.session);
-		console.log(errors);
 		if (!errors.isEmpty()) {
 			res.render("join", {
 				error: "Wrong number",

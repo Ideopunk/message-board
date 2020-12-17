@@ -1,0 +1,114 @@
+@import "reset";
+@import "message";
+
+$testborder: 1px solid blue;
+
+body {
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background: linear-gradient(rgb(187, 174, 221) 0%, rgb(240, 207, 207) 100%);
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	margin: 0;
+}
+
+a {
+	color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+input {
+	border: 0;
+	height: 3rem;
+	padding-top: 0.75rem;
+	padding-left: 0.5rem;
+	box-sizing: border-box;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.submit {
+	background: white;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 5px;
+  min-height: 2rem;
+}
+
+label {
+	display: block;
+	position: relative;
+	color: rgb(68, 68, 68);
+	width: 100%;
+	margin: 0.5rem 0;
+	font-size: 14px;
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	box-sizing: border-box;
+	width: 500px;
+}
+
+.auth-card {
+	margin-top: 3rem;
+	padding: 1rem;
+	box-sizing: border-box;
+	align-self: center;
+	background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  width: 300px;
+}
+
+.form-name {
+	position: absolute;
+	left: 0.5rem;
+	top: 0.25rem;
+}
+
+.grey {
+  color: grey;  
+}
+
+.marg-top {
+	margin-top: 2rem;
+}
+
+.marg-bot {
+	margin-bottom: 1.5rem;
+}
+
+.space {
+	margin-right: 1rem;
+}
+
+.spread {
+  display: flex;
+  justify-content: space-between;
+}
