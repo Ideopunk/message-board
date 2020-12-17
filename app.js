@@ -26,12 +26,6 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
-// ~ security ~
-if (app.get("env") === "production") {
-	app.set("trust proxy", 1); // trust first proxy
-	sess.cookie.secure = true; // serve secure cookies
-}
-
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));
 
 passport.use(
