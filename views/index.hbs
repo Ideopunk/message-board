@@ -1,24 +1,25 @@
-    <div class="app">
-
 <h1 class="top">{{title}}</h1>
 
+    <div class="app">
+
+
 {{#if user}}
-    <form method="POST" action="/message">
+    <form method="POST" action="/message" class="auth-card">
         Create a new message
         <label>
             <span class="form-name">Subject</span>
-            <input required name="subject" placeholder="Subject"/>
+            <input required name="subject" />
         </label>
         <label>
              <span class="form-name">Message</span>
-            <input required name="message" placeholder="Message" />
+            <input required name="message" />
         </label>
-        <input class="submit" type="submit" value="Send"/>
+        <input class="submit" type="submit" value="Post"/>
     </form>
     <a class="submit marg-top" href="log-out">Log out.</a>
 
     {{#if basic}}
-        <a href="join">Join the club</a>
+        <a class="submit" href="/join">Join the club</a>
     {{/if}}
 
 {{else}}

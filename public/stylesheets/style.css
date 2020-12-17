@@ -149,7 +149,8 @@ body {
   width: 100vw;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin: 0; }
+  margin: 0;
+  overflow-x: hidden; }
 
 a {
   color: #000000;
@@ -177,6 +178,15 @@ input {
   width: 100%;
   border-radius: 5px;
   font-size: 14px; }
+
+input:hover, input:focus {
+  background-color: #cfebf5; }
+
+input:active {
+  background-color: #a5d9ec; }
+
+.big {
+  font-size: 20px; }
 
 .submit {
   background: white;
@@ -209,8 +219,14 @@ label {
   box-sizing: border-box;
   align-self: center;
   background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 3px 2px 4px grey;
   border-radius: 20px;
   width: 300px; }
+
+.error {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold; }
 
 .form-name {
   position: absolute;
@@ -231,6 +247,7 @@ label {
 
 .spread {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: center; }
 
 /*# sourceMappingURL=style.css.map */

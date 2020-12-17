@@ -83,11 +83,10 @@ router.post(
 );
 
 router.get("/join", (req, res) => {
-	if (req.user) {
-		res.redirect("/")
+	if (!req.user || req.user.status === "member") {
+		res.redirect("/");
 	} else {
 		res.render("join");
-
 	}
 });
 

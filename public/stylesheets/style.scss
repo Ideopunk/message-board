@@ -12,7 +12,8 @@ body {
 	width: 100vw;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	margin: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 a {
@@ -48,6 +49,19 @@ input {
 	font-size: 14px;
 }
 
+input:hover, input:focus {
+  background-color: rgb(207, 235, 245);
+}
+
+input:active {
+  background-color: darken(rgb(207, 235, 245), 10%);
+
+}
+
+.big {
+  font-size: 20px;
+}
+
 .submit {
 	background: white;
 	font-weight: bold;
@@ -81,9 +95,17 @@ label {
 	padding: 1rem;
 	box-sizing: border-box;
 	align-self: center;
-	background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
+	box-shadow: 3px 2px 4px grey;
+  
   border-radius: 20px;
   width: 300px;
+}
+
+.error {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .form-name {
@@ -111,4 +133,6 @@ label {
 .spread {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
+
