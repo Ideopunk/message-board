@@ -7,7 +7,7 @@ const UserSchema = new Schema(
 	{
 		first_name: { type: String, required: true, trim: true, minlength: 1 },
 		last_name: { type: String, required: true, trim: true, minlength: 1 },
-		email: {
+		username: {
 			type: String,
 			required: true,
 			trim: true,
@@ -17,7 +17,8 @@ const UserSchema = new Schema(
 				"Please fill a valid email address",
 			],
 		},
-		hash: { type: String, required: true, minlength: 1 },
+		password: { type: String, required: true, minlength: 1 },
+		status: { type: String, enum: ["basic", "member", "admin"], default: "basic" },
 	},
 	{ timestamps: true }
 );
