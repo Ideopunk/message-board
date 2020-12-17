@@ -1,8 +1,42 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
 {{#if user}}
-<a href="log-out">Log out.</a>
-<a href="join">Join the club</a>
+    <form method="POST" action="/message">
+        Create a new message
+        <label>
+            Subject
+            <input required name="subject" placeholder="Subject"/>
+        </label>
+        <label>
+            Message
+            <input required name="message" placeholder="Message" />
+        </label>
+        <input type="submit" value="Send"/>
+    </form>
+    <a href="log-out">Log out.</a>
+
+    {{#if basic}}
+        <a href="join">Join the club</a>
+    {{/if}}
+
 {{else}}
-<a href="log-in">Log in.</a>
+    <a href="log-in">Log in.</a>
+    <a href="sign-up">Sign up.</a>
+{{/if}}
+
+{{#if posts}}
+    <ul>
+    {{#each posts}}
+        <li>
+            <h2>{{this.subject}}</h2>
+            {{#if user}}
+            <h3>{{this.user.full_name}}</h3>
+            {{/if}}
+            <p>{{{this.message}}}</p>
+            {{!-- {{this.message}}</p> --}}
+            <small>{{this.date_formatted}}</small>
+        </li>
+    {{/each}}
+    </ul>
 {{/if}}

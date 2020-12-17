@@ -3,10 +3,26 @@ var express = require("express");
 var router = express.Router();
 const { body, validationResult } = require("express-validator");
 const User = require("../models/user");
+const Post = require("../models/post");
 const passport = require("passport");
 
 /* GET home page. */
-router.get("/", (req, res) => res.render("index", { title: "text", user: req.user }));
+router.get("/", (req, res) =>
+	Post.find({})
+		.populate("user")
+		.exec((err, list_posts) => {
+			if (err) {
+				return next(err);
+			}
+			res.render("index", {
+				title: "The Club",
+				user: req.user,
+				basic: req.user?.status === "basic" ? true : false,
+        admin: req.user?.status === "admin" ? true : false,
+        posts: list_posts
+			});
+		})
+);
 
 router.get("/sign-up", (req, res) => res.render("sign-up"));
 
@@ -101,4 +117,30 @@ router.get("/log-out", (req, res) => {
 	res.redirect("/");
 });
 
+router.post(
+	"/message",
+	[
+		body("subject").trim().isLength({ min: 1 }).escape(),
+		body("message").trim().isLength({ min: 1 }).escape(),
+	],
+	(req, res, next) => {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			return res.status(400).json({ errors: errors.array() });
+		}
+
+		const message = new Post({
+			subject: req.body.subject,
+			message: req.body.message,
+			user: req.user._id,
+		});
+
+		message.save((err) => {
+			if (err) {
+				return next(err);
+			}
+			res.redirect("/");
+		});
+	}
+);
 module.exports = router;
